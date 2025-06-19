@@ -5,31 +5,31 @@ if (localStorage.getItem('ftBang')) {
 }
 var ftEyes = 'assets/eyes.png'
 if (localStorage.getItem('ftEyes')) {
-    ftBang = localStorage.getItem('ftEyes')
+    ftEyes = localStorage.getItem('ftEyes')
 }
 var ftEyesClosed = 'assets/eyesclosed.png'
 if (localStorage.getItem('ftEyesClosed')) {
-    ftBang = localStorage.getItem('ftEyesClosed')
+    ftEyesClosed = localStorage.getItem('ftEyesClosed')
 }
 var ftMouth = 'assets/mouth.png'
 if (localStorage.getItem('ftMouth')) {
-    ftBang = localStorage.getItem('ftMouth')
+    ftMouth = localStorage.getItem('ftMouth')
 }
 var ftMouthOpen = 'assets/mouthopen.png'
 if (localStorage.getItem('ftMouthOpen')) {
-    ftBang = localStorage.getItem('ftMouthOpen')
+    ftMouthOpen = localStorage.getItem('ftMouthOpen')
 }
 var ftFace = 'assets/face.png'
 if (localStorage.getItem('ftFace')) {
-    ftBang = localStorage.getItem('ftFace')
+    ftFace = localStorage.getItem('ftFace')
 }
 var ftBody = 'assets/body.png'
 if (localStorage.getItem('ftBody')) {
-    ftBang = localStorage.getItem('ftBody')
+    ftBody = localStorage.getItem('ftBody')
 }
 var ftBack = 'assets/back.png'
 if (localStorage.getItem('ftBack')) {
-    ftBang = localStorage.getItem('ftBack')
+    ftBack = localStorage.getItem('ftBack')
 }
 
 document.querySelector('#bang').setAttribute('src', ftBang)
