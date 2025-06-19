@@ -18,6 +18,8 @@
 
 body {
     font-family: 'Aggro';
+    font-size: 18px;
+    line-height: 1.8;
     background-color: #eee;
     margin: 0;
     padding: 0;
