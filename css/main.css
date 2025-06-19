@@ -4,17 +4,11 @@ body {
     background-color: #00ff00;
 }
 
-#first {
+#character {
     position: fixed;
     top: 0;
     left: calc(50vw - min(50vw, 50dvh));
     transform-origin:  min(50vw, 50dvh) min(100vw, 100dvh);
-}
-
-#second {
-    position: fixed;
-    top: 0;
-    left: 300px;
 }
 
 .live2d {
@@ -47,46 +41,4 @@ body {
 
 #back {
     z-index: 94;
-}
-
-.live2d2 {
-    width: 256px;
-    height: 256px;
-    position: absolute;
-}
-
-#bang2 {
-    z-index: 99;
-    top: -10px;
-    left: 0;
-}
-
-#mouth2 {
-    z-index: 98;
-    top: -15px;
-    left: 0;
-}
-
-#eyes2 {
-    z-index: 97;
-    top: -15px;
-    left: 0;
-}
-
-#face2 {
-    z-index: 96;
-    top: -5px;
-    left: 0;
-}
-
-#body2 {
-    z-index: 95;
-    top: 0px;
-    left: 0;
-}
-
-#back2 {
-    z-index: 94;
-    top: 5px;
-    left: 0;
 }

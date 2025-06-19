@@ -5,24 +5,48 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Sound-Git</title>
+    <title>Feather-Talk</title>
     <meta name="summary" content="A git-based static mp3 player">
-    <link rel="stylesheet" media="screen" href="css/main.css?v=0.0.7">
+    <link rel="stylesheet" media="screen" href="css/index.css?v=0.0.0">
     <meta property="og:image" content="assets/logo.png" /> 
     <meta property="og:title" content="Sound-Git" /> 
     <meta property="og:description" content="A git-based static mp3 player" /> 
 </head>
 <body>
 
-<div id="first">
-<img src="assets/bang.png" class="live2d" id="bang" />
-<img src="assets/mouth.png" class="live2d" id="mouth" />
-<img src="assets/eyes.png" class="live2d" id="eyes" />
-<img src="assets/face.png" class="live2d" id="face" />
-<img src="assets/body.png" class="live2d" id="body" />
-<img src="assets/back.png" class="live2d" id="back" />
+<div id="app">
+    <div id="navbar">
+        <div id="logo">
+            <h2>Feather-Talk</h2>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div id="info">
+            <iframe style="width: 100%; aspect-ratio: 16 / 9; border-radius: 5px" src="https://www.youtube.com/embed/MjpYiH7YGV8?si=Pac4Ht71rlSwRFb8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h1>브라우저에서 GifTalk + 간단한 Live2D 즐기기</h1>
+            <div>알아서 리깅해줌</div>
+        </div>
+        <div id="gotolive">
+            <h1>라이브 하러 가볼까요?!</h1>
+            <div>가이드를 보고 이미지를 제작한 다음 imgur이나 오브젝트 스토리지 등에 올려주세요. (Feather-Talk는 별도의 서버를 운영하고 있지 않습니다.) 아래 이미지 주소를 모두 채운 뒤 라이브 버튼을 눌러주세요.</div>
+            <div>이미지는 기본 가로세로 1024px의 정사각형 이미지입니다.</div>
+            <input type="text" id="bang" placeholder="앞머리 이미지 주소" />
+            <input type="text" id="eyes" placeholder="눈/코(열림) 이미지 주소" />
+            <input type="text" id="eyesclosed" placeholder="눈/코(닫힘) 이미지 주소" />
+            <input type="text" id="mouth" placeholder="입(닫힘) 이미지 주소" />
+            <input type="text" id="mouthopen" placeholder="입(열림) 이미지 주소" />
+            <input type="text" id="face" placeholder="얼굴+옆머리 이미지 주소" />
+            <input type="text" id="body" placeholder="몸통 이미지 주소" />
+            <input type="text" id="back" placeholder="뒷머리 이미지 주소" />
+            <div><span id="submit">라이브!</span></div>
+        </div>
+        <div id="info2">
+            <h1>제작자 정보</h1>
+            <div>연이나</div>
+        </div>
+    </div>
 </div>
 
-<script src="./js/index.js?v=0.0.22"></script>
+<script src="./js/localstorage.js?v=0.0.0"></script>
 </body>
 </html>

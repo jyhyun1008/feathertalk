@@ -1,23 +1,55 @@
 
+var ftBang = 'assets/bang.png'
+if (localStorage.getItem('ftBang')) {
+    ftBang = localStorage.getItem('ftBang')
+}
+var ftEyes = 'assets/eyes.png'
+if (localStorage.getItem('ftEyes')) {
+    ftBang = localStorage.getItem('ftEyes')
+}
+var ftEyesClosed = 'assets/eyesclosed.png'
+if (localStorage.getItem('ftEyesClosed')) {
+    ftBang = localStorage.getItem('ftEyesClosed')
+}
+var ftMouth = 'assets/mouth.png'
+if (localStorage.getItem('ftMouth')) {
+    ftBang = localStorage.getItem('ftMouth')
+}
+var ftMouthOpen = 'assets/mouthopen.png'
+if (localStorage.getItem('ftMouthOpen')) {
+    ftBang = localStorage.getItem('ftMouthOpen')
+}
+var ftFace = 'assets/face.png'
+if (localStorage.getItem('ftFace')) {
+    ftBang = localStorage.getItem('ftFace')
+}
+var ftBody = 'assets/body.png'
+if (localStorage.getItem('ftBody')) {
+    ftBang = localStorage.getItem('ftBody')
+}
+var ftBack = 'assets/back.png'
+if (localStorage.getItem('ftBack')) {
+    ftBang = localStorage.getItem('ftBack')
+}
+
+document.querySelector('#bang').setAttribute('src', ftBang)
+document.querySelector('#eyes').setAttribute('src', ftEyes)
+document.querySelector('#mouth').setAttribute('src', ftMouth)
+document.querySelector('#face').setAttribute('src', ftFace)
+document.querySelector('#body').setAttribute('src', ftBody)
+document.querySelector('#back').setAttribute('src', ftBack)
 
 document.addEventListener('mousemove',function(e){
     document.querySelector('#bang').setAttribute('style', `top: ${-10 + (e.clientY / document.body.clientHeight) * 20}px`)
-
     document.querySelector('#mouth').setAttribute('style', `top: ${-15 + (e.clientY / document.body.clientHeight) * 30}px`)
-
     document.querySelector('#eyes').setAttribute('style', `top: ${-15 + (e.clientY / document.body.clientHeight) * 30}px`)
-
     document.querySelector('#face').setAttribute('style', `top: ${-5 + (e.clientY / document.body.clientHeight) * 10}px`)
-
     document.querySelector('#back').setAttribute('style', `top: ${5 - (e.clientY / document.body.clientHeight) * 10}px`)
-
-document.querySelector('#first').setAttribute('style', `transform: rotate(${(e.clientX - document.body.clientWidth/2)/document.body.clientWidth*15}deg);`)
-
+document.querySelector('#character').setAttribute('style', `transform: rotate(${(e.clientX - document.body.clientWidth/2)/document.body.clientWidth*15}deg);`)
 })
     
 async function audio () {
   let volumeCallback = null;
-  let volumeInterval = 1;
   // Initialize
   try {
     const audioStream = await navigator.mediaDevices.getUserMedia({
@@ -42,9 +74,14 @@ async function audio () {
       const averageVolume = volumeSum / volumes.length;
 
       if (averageVolume >= 30 && new Date() % 400 >= 200) {
-        document.querySelector('#mouth').setAttribute('src', 'assets/mouthopen.png')
+        document.querySelector('#mouth').setAttribute('src', ftMouthOpen)
       } else {
-        document.querySelector('#mouth').setAttribute('src', 'assets/mouth.png')
+        document.querySelector('#mouth').setAttribute('src', ftMouth)
+      }
+      if (new Date() % 3000 >= 2800) {
+        document.querySelector('#eyes').setAttribute('src', ftEyesClosed)
+      } else {
+        document.querySelector('#eyes').setAttribute('src', ftEyes)
       }
       // Value range: 127 = analyser.maxDecibels - analyser.minDecibels;
     };
@@ -57,9 +94,14 @@ async function audio () {
       const volume = Math.min(Math.max(Math.random() * 100, 0.8 * lastVolume), 1.2 * lastVolume);
       lastVolume = volume;
       if (lastVolume >= 30 && new Date() % 400 >= 200) {
-        document.querySelector('#mouth').setAttribute('src', 'assets/mouthopen.png')
+        document.querySelector('#mouth').setAttribute('src', ftMouthOpen)
       } else {
-        document.querySelector('#mouth').setAttribute('src', 'assets/mouth.png')
+        document.querySelector('#mouth').setAttribute('src', ftMouth)
+      }
+      if (new Date() % 3000 >= 2800) {
+        document.querySelector('#eyes').setAttribute('src', ftEyesClosed)
+      } else {
+        document.querySelector('#eyes').setAttribute('src', ftEyes)
       }
     };
   }
