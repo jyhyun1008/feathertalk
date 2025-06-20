@@ -60,7 +60,7 @@ document.querySelector('#back').setAttribute('src', ftBack)
 
 document.addEventListener('mousemove',function(e){
     document.querySelector('#bang').setAttribute('style', `top: ${(-10 + (e.clientY / document.body.clientHeight) * 20)*rig/100}px`)
-    document.querySelector('#mouth').setAttribute('style', `top: ${(-15 + (e.clientY / document.body.clientHeight) * 30)*rig/100}px`)
+    document.querySelector('#mouth').setAttribute('style', `top: ${(-10 + (e.clientY / document.body.clientHeight) * 20)*rig/100}px`)
     document.querySelector('#eyes').setAttribute('style', `top: ${(-15 + (e.clientY / document.body.clientHeight) * 30)*rig/100}px`)
     document.querySelector('#face').setAttribute('style', `top: ${(-5 + (e.clientY / document.body.clientHeight) * 10)*rig/100}px`)
     document.querySelector('#back').setAttribute('style', `top: ${(5 - (e.clientY / document.body.clientHeight) * 10)*rig/100}px`)
