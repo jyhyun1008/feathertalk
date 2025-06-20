@@ -1,4 +1,19 @@
+@font-face {
+    font-family: 'Aggro';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aggro';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
 body {
+    font-family: 'Aggro';
     height: 100dvh;
     width: 100vw;
     background-color: #00ff00;
@@ -6,7 +21,7 @@ body {
 
 #character {
     position: fixed;
-    top: 0;
+    top: 3rem;
     left: calc(50vw - min(50vw, 50dvh));
     transform-origin:  min(50vw, 50dvh) min(100vw, 100dvh);
 }

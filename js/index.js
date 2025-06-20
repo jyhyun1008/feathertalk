@@ -1,3 +1,22 @@
+var thres = 30
+if (localStorage.getItem('ftThres')) {
+  thres = parseInt(localStorage.getItem('ftThres'))
+}
+
+var rig = 100
+if (localStorage.getItem('ftRig')) {
+  rig = localStorage.getItem('ftRig')
+}
+
+document.querySelector('#threshold').addEventListener('change', function(e){
+  thres = e.target.value
+  localStorage.setItem('ftThres', thres)
+})
+
+document.querySelector('#rig').addEventListener('change', function(e){
+  rig = e.target.value
+  localStorage.setItem('ftRig', rig)
+})
 
 var ftBang = 'assets/bang.png'
 if (localStorage.getItem('ftBang')) {
@@ -40,11 +59,11 @@ document.querySelector('#body').setAttribute('src', ftBody)
 document.querySelector('#back').setAttribute('src', ftBack)
 
 document.addEventListener('mousemove',function(e){
-    document.querySelector('#bang').setAttribute('style', `top: ${-10 + (e.clientY / document.body.clientHeight) * 20}px`)
-    document.querySelector('#mouth').setAttribute('style', `top: ${-15 + (e.clientY / document.body.clientHeight) * 30}px`)
-    document.querySelector('#eyes').setAttribute('style', `top: ${-15 + (e.clientY / document.body.clientHeight) * 30}px`)
-    document.querySelector('#face').setAttribute('style', `top: ${-5 + (e.clientY / document.body.clientHeight) * 10}px`)
-    document.querySelector('#back').setAttribute('style', `top: ${5 - (e.clientY / document.body.clientHeight) * 10}px`)
+    document.querySelector('#bang').setAttribute('style', `top: ${(-10 + (e.clientY / document.body.clientHeight) * 20)*rig/100}px`)
+    document.querySelector('#mouth').setAttribute('style', `top: ${(-15 + (e.clientY / document.body.clientHeight) * 30)*rig/100}px`)
+    document.querySelector('#eyes').setAttribute('style', `top: ${(-15 + (e.clientY / document.body.clientHeight) * 30)*rig/100}px`)
+    document.querySelector('#face').setAttribute('style', `top: ${(-5 + (e.clientY / document.body.clientHeight) * 10)*rig/100}px`)
+    document.querySelector('#back').setAttribute('style', `top: ${(5 - (e.clientY / document.body.clientHeight) * 10)*rig/100}px`)
 document.querySelector('#character').setAttribute('style', `transform: rotate(${(e.clientX - document.body.clientWidth/2)/document.body.clientWidth*15}deg);`)
 })
     
@@ -73,7 +92,7 @@ async function audio () {
         volumeSum += volume;
       const averageVolume = volumeSum / volumes.length;
 
-      if (averageVolume >= 30 && new Date() % 400 >= 200) {
+      if (averageVolume >= thres && new Date() % 400 >= 200) {
         document.querySelector('#mouth').setAttribute('src', ftMouthOpen)
       } else {
         document.querySelector('#mouth').setAttribute('src', ftMouth)
@@ -93,7 +112,7 @@ async function audio () {
     volumeCallback = () => {
       const volume = Math.min(Math.max(Math.random() * 100, 0.8 * lastVolume), 1.2 * lastVolume);
       lastVolume = volume;
-      if (lastVolume >= 30 && new Date() % 400 >= 200) {
+      if (lastVolume >= thres && new Date() % 400 >= 200) {
         document.querySelector('#mouth').setAttribute('src', ftMouthOpen)
       } else {
         document.querySelector('#mouth').setAttribute('src', ftMouth)
