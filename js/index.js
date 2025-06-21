@@ -1,12 +1,27 @@
 var thres = 30
 if (localStorage.getItem('ftThres')) {
   thres = parseInt(localStorage.getItem('ftThres'))
+  document.querySelector('#threshold').value=thres
 }
 
 var rig = 100
 if (localStorage.getItem('ftRig')) {
   rig = localStorage.getItem('ftRig')
+  document.querySelector('#rig').value=rig
 }
+
+var interval = 1500
+var length = parseInt(interval/20)
+var intervals = Array.from({ length }, (_, k) => 0 + k * 20);
+if (localStorage.getItem('ftInterval')) {
+  interval = localStorage.getItem('ftInterval')
+  length = parseInt(interval/20)
+  intervals = Array.from({ length }, (_, k) => 0 + k * 20);
+  document.querySelector('#interval').value=interval
+}
+
+var randomX = document.body.clientWidth/2; 
+var randomY= document.body.clientHeight/2;
 
 document.querySelector('#threshold').addEventListener('change', function(e){
   thres = e.target.value
@@ -16,6 +31,13 @@ document.querySelector('#threshold').addEventListener('change', function(e){
 document.querySelector('#rig').addEventListener('change', function(e){
   rig = e.target.value
   localStorage.setItem('ftRig', rig)
+})
+
+document.querySelector('#interval').addEventListener('change', function(e){
+  interval = e.target.value
+  localStorage.setItem('ftInterval', interval)
+
+  location.href=location.href;
 })
 
 var ftBang = 'assets/bang.png'
@@ -58,15 +80,6 @@ document.querySelector('#face').setAttribute('src', ftFace)
 document.querySelector('#body').setAttribute('src', ftBody)
 document.querySelector('#back').setAttribute('src', ftBack)
 
-document.addEventListener('mousemove',function(e){
-    document.querySelector('#bang').setAttribute('style', `top: ${(-10 + (e.clientY / document.body.clientHeight) * 20)*rig/100}px`)
-    document.querySelector('#mouth').setAttribute('style', `top: ${(-10 + (e.clientY / document.body.clientHeight) * 20)*rig/100}px`)
-    document.querySelector('#eyes').setAttribute('style', `top: ${(-15 + (e.clientY / document.body.clientHeight) * 30)*rig/100}px`)
-    document.querySelector('#face').setAttribute('style', `top: ${(-5 + (e.clientY / document.body.clientHeight) * 10)*rig/100}px`)
-    document.querySelector('#back').setAttribute('style', `top: ${(5 - (e.clientY / document.body.clientHeight) * 10)*rig/100}px`)
-document.querySelector('#character').setAttribute('style', `transform: rotate(${(e.clientX - document.body.clientWidth/2)/document.body.clientWidth*15}deg);`)
-})
-    
 async function audio () {
   let volumeCallback = null;
   // Initialize
@@ -128,5 +141,77 @@ async function audio () {
     
   volumeCallback()
   }, 100);
-};
+}
+
+  let autoRig = setInterval(async () => {
+    var lastRandomX = randomX
+    var lastRandomY = randomY
+    randomX = Math.random() * document.body.clientWidth
+    randomY = Math.random() * document.body.clientHeight
+    function wait(sec) {
+        let start = Date.now(), now = start;
+        while (now - start < sec) {
+            now = Date.now();
+        }
+    }
+    for await (let i of intervals) {
+
+      setTimeout(() => {
+        
+      var X = lastRandomX + (randomX - lastRandomX) * i / interval
+      var Y = lastRandomY + (randomY - lastRandomY) * i / interval
+      
+      document.querySelector('#bang').setAttribute('style', `top: ${(-10 + (Y / document.body.clientHeight) * 20)*rig/100}px`)
+      document.querySelector('#mouth').setAttribute('style', `top: ${(-10 + (Y / document.body.clientHeight) * 20)*rig/100}px`)
+      document.querySelector('#eyes').setAttribute('style', `top: ${(-15 + (Y / document.body.clientHeight) * 30)*rig/100}px`)
+      document.querySelector('#face').setAttribute('style', `top: ${(-5 + (Y / document.body.clientHeight) * 10)*rig/100}px`)
+      document.querySelector('#back').setAttribute('style', `top: ${(5 - (Y / document.body.clientHeight) * 10)*rig/100}px`)
+      document.querySelector('#character').setAttribute('style', `transform: rotate(${(X - document.body.clientWidth/2)/document.body.clientWidth*15}deg);`)
+      }, i*12/20);
+    }
+  }, interval);
+  
 audio()
+
+document.addEventListener('mousemove',function(e){
+    clearInterval(autoRig)
+    document.querySelector('#bang').setAttribute('style', `top: ${(-10 + (e.clientY / document.body.clientHeight) * 20)*rig/100}px`)
+    document.querySelector('#mouth').setAttribute('style', `top: ${(-10 + (e.clientY / document.body.clientHeight) * 20)*rig/100}px`)
+    document.querySelector('#eyes').setAttribute('style', `top: ${(-15 + (e.clientY / document.body.clientHeight) * 30)*rig/100}px`)
+    document.querySelector('#face').setAttribute('style', `top: ${(-5 + (e.clientY / document.body.clientHeight) * 10)*rig/100}px`)
+    document.querySelector('#back').setAttribute('style', `top: ${(5 - (e.clientY / document.body.clientHeight) * 10)*rig/100}px`)
+    document.querySelector('#character').setAttribute('style', `transform: rotate(${(e.clientX - document.body.clientWidth/2)/document.body.clientWidth*15}deg);`)
+
+    randomX = 0
+    randomY = 0
+
+    autoRig = setInterval(async () => {
+
+    var lastRandomX = randomX?randomX:e.clientX
+    var lastRandomY = randomY?randomY:e.clientY
+    randomX = Math.random() * document.body.clientWidth
+    randomY = Math.random() * document.body.clientHeight
+    function wait(sec) {
+        let start = Date.now(), now = start;
+        while (now - start < sec) {
+            now = Date.now();
+        }
+    }
+    for await (let i of intervals) {
+
+      setTimeout(() => {
+        
+      var X = lastRandomX + (randomX - lastRandomX) * i / interval
+      var Y = lastRandomY + (randomY - lastRandomY) * i / interval
+      
+      document.querySelector('#bang').setAttribute('style', `top: ${(-10 + (Y / document.body.clientHeight) * 20)*rig/100}px`)
+      document.querySelector('#mouth').setAttribute('style', `top: ${(-10 + (Y / document.body.clientHeight) * 20)*rig/100}px`)
+      document.querySelector('#eyes').setAttribute('style', `top: ${(-15 + (Y / document.body.clientHeight) * 30)*rig/100}px`)
+      document.querySelector('#face').setAttribute('style', `top: ${(-5 + (Y / document.body.clientHeight) * 10)*rig/100}px`)
+      document.querySelector('#back').setAttribute('style', `top: ${(5 - (Y / document.body.clientHeight) * 10)*rig/100}px`)
+      document.querySelector('#character').setAttribute('style', `transform: rotate(${(X - document.body.clientWidth/2)/document.body.clientWidth*15}deg);`)
+      }, i*12/20);
+    }
+  }, interval);
+})
+    
