@@ -13,8 +13,7 @@
     <meta property="og:description" content="매우 간단하고 귀여운 2D 버츄얼!" /> 
 </head>
 <body>
-
-<div id="app">
+    <div id="app">
     <div id="navbar">
         <div id="logo">
             <h2>Feather-Talk</h2>
@@ -25,9 +24,25 @@
             <iframe style="width: 100%; aspect-ratio: 16 / 9; border-radius: 5px" src="https://www.youtube.com/embed/MjpYiH7YGV8?si=Pac4Ht71rlSwRFb8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <h1>브라우저에서 GifTalk + 간단한 Live2D 즐기기</h1>
             <h2>웹캠이 필요하지 않습니다.</h2>
-            <div>웹캠이 아니라 마우스로 캐릭터를 컨트롤하게 됩니다. 다만 브라우저 기반이라 다른 프로그램이 활성화되어 있을 동안은 움직이지 않습니다. 저챗 등에 사용해 주세요!</div>
+            <div>웹캠이나 트래킹 장비 없이도, 마우스를 통해 캐릭터를 조작할 수 있습니다.
+            </div><div>
+            단, 마우스는 해당 브라우저 화면 위에 있어야 하며, OBS에서 커서를 숨겨주셔야 합니다.
+            </div><div>
+            ​마우스가 브라우저를 활성화시키지 않을 때에도 캐릭터가 알아서 랜덤하게 움직이게 되었습니다.
+            </div><div>
+            그 외에도, 눈 깜빡임은 자동으로 구현되어 있습니다.
+            </div>
             <h2>리깅 과정이 필요하지 않습니다.</h2>
-            <div>간단한 그림 8장만 준비해오면, 리깅 필요 없이 라이브2D와 유사한 효과를 낼 수 있습니다.</div>
+            <div>리깅 없이 <b>단 8장의 조각 이미지만</b>으로 간단하고 가벼운 Live2D식 모션을 재현하는 것이 가능합니다.</div>
+            <div>그림체는 자신이 원하는 대로 커스터마이징 가능하며, 배경투명화 된 정사각형 이미지라면 무엇이든 사용할 수 있습니다.</div>
+            <div>단, 티스토리나 imgur 등으로 이미지 호스팅을 받은 이미지만 사용할 수 있습니다.</div>
+            <div>8장의 조각 이미지는 다음과 같습니다.</div>
+            <ul>
+            <li>앞머리</li><li>열린 눈+코</li><li>닫힌 눈+코</li><li>닫힌 입</li><li>열린 입</li><li>얼굴+옆머리</li><li>몸통</li><li>뒷머리</li>
+            </ul>
+            <div>또한, 이미지가 왜곡되는 강도를 살짝 조절할 수 있습니다. 그림체에 따라 다양하게 조정해 보세요!</div><div>레이어를 잘 쌓으면, 악기를 연주하거나 다른 동작을 하는 장면도 만들어낼 수 있어요.</div><div>특히 악기 연주할 때는 <b>입 레이어에 악기를 연주하는 손이 위치하도록</b> 구상하면 됩니다. 그 부분이 소리에 반응하기 때문이에요.</div>
+            <h1>마이크 볼륨에 반응하는 입</h1>
+            <div>말하고 있는 사이에 입 애니메이션이 재생됩니다. </div><div>입이 움직이는 애니메이션 gif를 따로 만들지 않고 알아서 브라우저측에서 애니메이션을 만들어 주는 느낌입니다. 눈 깜빡임도 비슷합니다!</div><div>입 애니메이션이 재생되도록 만드는 소리의 민감도를 조절할 수 있습니다.</div>
         </div>
         <div id="gotolive">
             <h1>라이브 하러 가볼까요?!</h1>
@@ -46,11 +61,13 @@
         </div>
         <div id="info2">
             <h1>제작자 정보</h1>
-            <div>연이나</div>
+            <div><b>연이나</b></div>
+            <div>연로자 연소자 여러분 하이나!!! 안녕하세요 연이나입니다.</div>
+            <div>채널은 아래 링크에서 들어가보실 수 있어요.</div>
+            <div><a href="https://youtube.com/@however_ina_main">유튜브</a> 그리고 <a href="https://chzzk.naver.com/1bba9a34d4d2b8b998c36c5cdbc9f4fe/">치지직</a></div>
         </div>
     </div>
 </div>
-
 <script src="./js/localstorage.js?v=0.0.1"></script>
 </body>
 </html>
