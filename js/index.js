@@ -166,7 +166,7 @@ async function audio () {
       document.querySelector('#eyes').setAttribute('style', `top: ${(-15 + (Y / document.body.clientHeight) * 30)*rig/100}px`)
       document.querySelector('#face').setAttribute('style', `top: ${(-5 + (Y / document.body.clientHeight) * 10)*rig/100}px`)
       document.querySelector('#back').setAttribute('style', `top: ${(5 - (Y / document.body.clientHeight) * 10)*rig/100}px`)
-      document.querySelector('#character').setAttribute('style', `transform: rotate(${(X - document.body.clientWidth/2)/document.body.clientWidth*15}deg);`)
+      document.querySelector('#character').setAttribute('style', `transform: rotate(${(X - document.body.clientWidth/2)/document.body.clientWidth*15*rig/100}deg);`)
       }, i*12/20);
     }
   }, interval);
@@ -180,7 +180,7 @@ document.addEventListener('mousemove',function(e){
     document.querySelector('#eyes').setAttribute('style', `top: ${(-15 + (e.clientY / document.body.clientHeight) * 30)*rig/100}px`)
     document.querySelector('#face').setAttribute('style', `top: ${(-5 + (e.clientY / document.body.clientHeight) * 10)*rig/100}px`)
     document.querySelector('#back').setAttribute('style', `top: ${(5 - (e.clientY / document.body.clientHeight) * 10)*rig/100}px`)
-    document.querySelector('#character').setAttribute('style', `transform: rotate(${(e.clientX - document.body.clientWidth/2)/document.body.clientWidth*15}deg);`)
+    document.querySelector('#character').setAttribute('style', `transform: rotate(${(e.clientX - document.body.clientWidth/2)/document.body.clientWidth*15*rig/100}deg);`)
 
     randomX = 0
     randomY = 0
@@ -209,7 +209,7 @@ document.addEventListener('mousemove',function(e){
       document.querySelector('#eyes').setAttribute('style', `top: ${(-15 + (Y / document.body.clientHeight) * 30)*rig/100}px`)
       document.querySelector('#face').setAttribute('style', `top: ${(-5 + (Y / document.body.clientHeight) * 10)*rig/100}px`)
       document.querySelector('#back').setAttribute('style', `top: ${(5 - (Y / document.body.clientHeight) * 10)*rig/100}px`)
-      document.querySelector('#character').setAttribute('style', `transform: rotate(${(X - document.body.clientWidth/2)/document.body.clientWidth*15}deg);`)
+      document.querySelector('#character').setAttribute('style', `transform: rotate(${(X - document.body.clientWidth/2)/document.body.clientWidth*15*rig/100}deg);`)
       }, i*12/20);
     }
   }, interval);
