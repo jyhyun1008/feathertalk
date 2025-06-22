@@ -146,7 +146,7 @@ async function audio () {
   let autoRig = setInterval(async () => {
     var lastRandomX = randomX
     var lastRandomY = randomY
-    randomX = Math.random() * document.body.clientWidth
+    randomX = Math.random() * document.body.clientWidth / 3 + document.body.clientWidth / 3
     randomY = Math.random() * document.body.clientHeight
     function wait(sec) {
         let start = Date.now(), now = start;
@@ -166,7 +166,7 @@ async function audio () {
       document.querySelector('#eyes').setAttribute('style', `top: ${(-15 + (Y / document.body.clientHeight) * 30)*rig/100}px`)
       document.querySelector('#face').setAttribute('style', `top: ${(-5 + (Y / document.body.clientHeight) * 10)*rig/100}px`)
       document.querySelector('#back').setAttribute('style', `top: ${(5 - (Y / document.body.clientHeight) * 10)*rig/100}px`)
-      document.querySelector('#character').setAttribute('style', `transform: rotate(${(X - document.body.clientWidth/2)/document.body.clientWidth*5*rig/100}deg);`)
+      document.querySelector('#character').setAttribute('style', `transform: rotate(${(X - document.body.clientWidth/2)/document.body.clientWidth*15*rig/100}deg);`)
       }, i*12/20);
     }
   }, interval);
@@ -209,7 +209,7 @@ document.addEventListener('mousemove',function(e){
       document.querySelector('#eyes').setAttribute('style', `top: ${(-15 + (Y / document.body.clientHeight) * 30)*rig/100}px`)
       document.querySelector('#face').setAttribute('style', `top: ${(-5 + (Y / document.body.clientHeight) * 10)*rig/100}px`)
       document.querySelector('#back').setAttribute('style', `top: ${(5 - (Y / document.body.clientHeight) * 10)*rig/100}px`)
-      document.querySelector('#character').setAttribute('style', `transform: rotate(${(X - document.body.clientWidth/2)/document.body.clientWidth*5*rig/100}deg);`)
+      document.querySelector('#character').setAttribute('style', `transform: rotate(${(X - document.body.clientWidth/2)/document.body.clientWidth*15*rig/100}deg);`)
       }, i*12/20);
     }
   }, interval);
