@@ -65,10 +65,18 @@ input {
     border: 1px solid #eee;
 }
 
-#submit {
+.button {
     width: 100px;
+    min-width: 100px;
+    text-align: center;
     padding: 7px;
     background-color: #00eaff;
     color: white;
     border-radius: 10px;
+    text-decoration-line: none;
+}
+
+a {
+    text-decoration: none;
+    color: #00eaff;
 }
