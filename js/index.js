@@ -73,10 +73,14 @@ if (localStorage.getItem('ftBack')) {
     ftBack = localStorage.getItem('ftBack')
 }
 
-document.querySelector('#bang').setAttribute('src', ftBang)
-document.querySelector('#eyes').setAttribute('src', ftEyes)
-document.querySelector('#mouth').setAttribute('src', ftMouth)
-document.querySelector('#face').setAttribute('src', ftFace)
+document.querySelector('#bangl').setAttribute('src', ftBang)
+document.querySelector('#eyesl').setAttribute('src', ftEyes)
+document.querySelector('#mouthl').setAttribute('src', ftMouth)
+document.querySelector('#facel').setAttribute('src', ftFace)
+document.querySelector('#bangr').setAttribute('src', ftBang)
+document.querySelector('#eyesr').setAttribute('src', ftEyes)
+document.querySelector('#mouthr').setAttribute('src', ftMouth)
+document.querySelector('#facer').setAttribute('src', ftFace)
 document.querySelector('#body').setAttribute('src', ftBody)
 document.querySelector('#back').setAttribute('src', ftBack)
 
@@ -106,14 +110,18 @@ async function audio () {
       const averageVolume = volumeSum / volumes.length;
 
       if (averageVolume >= thres && new Date() % 400 >= 200) {
-        document.querySelector('#mouth').setAttribute('src', ftMouthOpen)
+        document.querySelector('#mouthl').setAttribute('src', ftMouthOpen)
+        document.querySelector('#mouthr').setAttribute('src', ftMouthOpen)
       } else {
-        document.querySelector('#mouth').setAttribute('src', ftMouth)
+        document.querySelector('#mouthl').setAttribute('src', ftMouth)
+        document.querySelector('#mouthr').setAttribute('src', ftMouth)
       }
       if (new Date() % 3000 >= 2800) {
-        document.querySelector('#eyes').setAttribute('src', ftEyesClosed)
+        document.querySelector('#eyesl').setAttribute('src', ftEyesClosed)
+        document.querySelector('#eyesr').setAttribute('src', ftEyesClosed)
       } else {
-        document.querySelector('#eyes').setAttribute('src', ftEyes)
+        document.querySelector('#eyesl').setAttribute('src', ftEyes)
+        document.querySelector('#eyesr').setAttribute('src', ftEyes)
       }
       // Value range: 127 = analyser.maxDecibels - analyser.minDecibels;
     };
@@ -126,14 +134,18 @@ async function audio () {
       const volume = Math.min(Math.max(Math.random() * 100, 0.8 * lastVolume), 1.2 * lastVolume);
       lastVolume = volume;
       if (lastVolume >= thres && new Date() % 400 >= 200) {
-        document.querySelector('#mouth').setAttribute('src', ftMouthOpen)
+        document.querySelector('#mouthl').setAttribute('src', ftMouthOpen)
+        document.querySelector('#mouthr').setAttribute('src', ftMouthOpen)
       } else {
-        document.querySelector('#mouth').setAttribute('src', ftMouth)
+        document.querySelector('#mouthl').setAttribute('src', ftMouth)
+        document.querySelector('#mouthr').setAttribute('src', ftMouth)
       }
       if (new Date() % 3000 >= 2800) {
-        document.querySelector('#eyes').setAttribute('src', ftEyesClosed)
+        document.querySelector('#eyesl').setAttribute('src', ftEyesClosed)
+        document.querySelector('#eyesr').setAttribute('src', ftEyesClosed)
       } else {
-        document.querySelector('#eyes').setAttribute('src', ftEyes)
+        document.querySelector('#eyesl').setAttribute('src', ftEyes)
+        document.querySelector('#eyesr').setAttribute('src', ftEyes)
       }
     };
   }
@@ -161,11 +173,40 @@ async function audio () {
       var X = lastRandomX + (randomX - lastRandomX) * i / interval
       var Y = lastRandomY + (randomY - lastRandomY) * i / interval
       
-      document.querySelector('#bang').setAttribute('style', `top: ${(-10 + (Y / document.body.clientHeight) * 20)*rig/100}px`)
-      document.querySelector('#mouth').setAttribute('style', `top: ${(-10 + (Y / document.body.clientHeight) * 20)*rig/100}px`)
-      document.querySelector('#eyes').setAttribute('style', `top: ${(-15 + (Y / document.body.clientHeight) * 30)*rig/100}px`)
-      document.querySelector('#face').setAttribute('style', `top: ${(-5 + (Y / document.body.clientHeight) * 10)*rig/100}px`)
       document.querySelector('#back').setAttribute('style', `top: ${(5 - (Y / document.body.clientHeight) * 10)*rig/100}px`)
+
+      document.querySelector('#bangdivl').setAttribute('style', `width: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#bangdivr').setAttribute('style', `width: min(${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh); left: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#bangl').setAttribute('style', `width: min(${100 + (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}vw, ${100 + (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}dvh); top: ${(-10 + (Y / document.body.clientHeight) * 20)*rig/100}px;`)
+
+      document.querySelector('#bangr').setAttribute('style', `width: min(${100 - (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}vw, ${100 - (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}dvh);top: ${(-10 + (Y / document.body.clientHeight) * 20)*rig/100}px;`)
+      
+      document.querySelector('#eyesdivl').setAttribute('style', `width: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#eyesdivr').setAttribute('style', `width: min(${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh); left: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#eyesl').setAttribute('style', `width: min(${100 + (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}vw, ${100 + (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}dvh);top: ${(-15 + (Y / document.body.clientHeight) * 30)*rig/100}px;`)
+
+      document.querySelector('#eyesr').setAttribute('style', `width: min(${100 - (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}vw, ${100 - (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}dvh);top: ${(-15 + (Y / document.body.clientHeight) * 30)*rig/100}px;`)
+
+      document.querySelector('#mouthdivl').setAttribute('style', `width: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#mouthdivr').setAttribute('style', `width: min(${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh); left: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#mouthl').setAttribute('style', `width: min(${100 + (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}vw, ${100 + (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}dvh);top: ${(-10 + (Y / document.body.clientHeight) * 20)*rig/100}px;`)
+
+      document.querySelector('#mouthr').setAttribute('style', `width: min(${100 - (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}vw, ${100 - (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}dvh);top: ${(-10 + (Y / document.body.clientHeight) * 20)*rig/100}px;`)
+
+      document.querySelector('#facedivl').setAttribute('style', `width: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#facedivr').setAttribute('style', `width: min(${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh); left: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#facel').setAttribute('style', `width: min(${100 + (X - document.body.clientWidth/2)/document.body.clientWidth*15*rig/100}vw, ${100 + (X - document.body.clientWidth/2)/document.body.clientWidth*15*rig/100}dvh);top: ${(-5 + (Y / document.body.clientHeight) * 10)*rig/100}px;`)
+
+      document.querySelector('#facer').setAttribute('style', `width: min(${100 - (X - document.body.clientWidth/2)/document.body.clientWidth*15*rig/100}vw, ${100 - (X - document.body.clientWidth/2)/document.body.clientWidth*15*rig/100}dvh);top: ${(-5 + (Y / document.body.clientHeight) * 10)*rig/100}px;`)
+
       document.querySelector('#character').setAttribute('style', `transform: rotate(${(X - document.body.clientWidth/2)/document.body.clientWidth*15*rig/100}deg);`)
       }, i*12/20);
     }
@@ -175,11 +216,41 @@ audio()
 
 document.addEventListener('mousemove',function(e){
     clearInterval(autoRig)
-    document.querySelector('#bang').setAttribute('style', `top: ${(-10 + (e.clientY / document.body.clientHeight) * 20)*rig/100}px`)
-    document.querySelector('#mouth').setAttribute('style', `top: ${(-10 + (e.clientY / document.body.clientHeight) * 20)*rig/100}px`)
-    document.querySelector('#eyes').setAttribute('style', `top: ${(-15 + (e.clientY / document.body.clientHeight) * 30)*rig/100}px`)
-    document.querySelector('#face').setAttribute('style', `top: ${(-5 + (e.clientY / document.body.clientHeight) * 10)*rig/100}px`)
+
     document.querySelector('#back').setAttribute('style', `top: ${(5 - (e.clientY / document.body.clientHeight) * 10)*rig/100}px`)
+
+      document.querySelector('#bangdivl').setAttribute('style', `width: min(${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#bangdivr').setAttribute('style', `width: min(${50 - (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 - (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh); left: min(${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#bangl').setAttribute('style', `width: min(${100 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}vw, ${100 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}dvh); top: ${(-10 + (e.clientY / document.body.clientHeight) * 20)*rig/100}px;`)
+
+      document.querySelector('#bangr').setAttribute('style', `width: min(${100 - (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}vw, ${100 - (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}dvh);top: ${(-10 + (e.clientY / document.body.clientHeight) * 20)*rig/100}px;`)
+      
+      document.querySelector('#eyesdivl').setAttribute('style', `width: min(${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#eyesdivr').setAttribute('style', `width: min(${50 - (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 - (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh); left: min(${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#eyesl').setAttribute('style', `width: min(${100 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}vw, ${100 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}dvh);top: ${(-15 + (e.clientY / document.body.clientHeight) * 30)*rig/100}px;`)
+
+      document.querySelector('#eyesr').setAttribute('style', `width: min(${100 - (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}vw, ${100 - (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}dvh);top: ${(-15 + (e.clientY / document.body.clientHeight) * 30)*rig/100}px;`)
+
+      document.querySelector('#mouthdivl').setAttribute('style', `width: min(${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#mouthdivr').setAttribute('style', `width: min(${50 - (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 - (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh); left: min(${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#mouthl').setAttribute('style', `width: min(${100 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}vw, ${100 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}dvh);top: ${(-10 + (e.clientY / document.body.clientHeight) * 20)*rig/100}px;`)
+
+      document.querySelector('#mouthr').setAttribute('style', `width: min(${100 - (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}vw, ${100 - (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}dvh);top: ${(-10 + (e.clientY / document.body.clientHeight) * 20)*rig/100}px;`)
+
+      document.querySelector('#facedivl').setAttribute('style', `width: min(${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#facedivr').setAttribute('style', `width: min(${50 - (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 - (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh); left: min(${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#facel').setAttribute('style', `width: min(${100 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*15*rig/100}vw, ${100 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*15*rig/100}dvh);top: ${(-5 + (e.clientY / document.body.clientHeight) * 10)*rig/100}px;`)
+
+      document.querySelector('#facer').setAttribute('style', `width: min(${100 - (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*15*rig/100}vw, ${100 - (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*15*rig/100}dvh);top: ${(-5 + (e.clientY / document.body.clientHeight) * 10)*rig/100}px;`)
+
     document.querySelector('#character').setAttribute('style', `transform: rotate(${(e.clientX - document.body.clientWidth/2)/document.body.clientWidth*15*rig/100}deg);`)
 
     randomX = 0
@@ -204,11 +275,40 @@ document.addEventListener('mousemove',function(e){
       var X = lastRandomX + (randomX - lastRandomX) * i / interval
       var Y = lastRandomY + (randomY - lastRandomY) * i / interval
       
-      document.querySelector('#bang').setAttribute('style', `top: ${(-10 + (Y / document.body.clientHeight) * 20)*rig/100}px`)
-      document.querySelector('#mouth').setAttribute('style', `top: ${(-10 + (Y / document.body.clientHeight) * 20)*rig/100}px`)
-      document.querySelector('#eyes').setAttribute('style', `top: ${(-15 + (Y / document.body.clientHeight) * 30)*rig/100}px`)
-      document.querySelector('#face').setAttribute('style', `top: ${(-5 + (Y / document.body.clientHeight) * 10)*rig/100}px`)
       document.querySelector('#back').setAttribute('style', `top: ${(5 - (Y / document.body.clientHeight) * 10)*rig/100}px`)
+
+      document.querySelector('#bangdivl').setAttribute('style', `width: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#bangdivr').setAttribute('style', `width: min(${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh); left: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#bangl').setAttribute('style', `width: min(${100 + (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}vw, ${100 + (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}dvh); top: ${(-10 + (Y / document.body.clientHeight) * 20)*rig/100}px;`)
+
+      document.querySelector('#bangr').setAttribute('style', `width: min(${100 - (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}vw, ${100 - (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}dvh);top: ${(-10 + (Y / document.body.clientHeight) * 20)*rig/100}px;`)
+      
+      document.querySelector('#eyesdivl').setAttribute('style', `width: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#eyesdivr').setAttribute('style', `width: min(${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh); left: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#eyesl').setAttribute('style', `width: min(${100 + (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}vw, ${100 + (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}dvh);top: ${(-15 + (Y / document.body.clientHeight) * 30)*rig/100}px;`)
+
+      document.querySelector('#eyesr').setAttribute('style', `width: min(${100 - (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}vw, ${100 - (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}dvh);top: ${(-15 + (Y / document.body.clientHeight) * 30)*rig/100}px;`)
+
+      document.querySelector('#mouthdivl').setAttribute('style', `width: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#mouthdivr').setAttribute('style', `width: min(${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh); left: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#mouthl').setAttribute('style', `width: min(${100 + (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}vw, ${100 + (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}dvh);top: ${(-10 + (Y / document.body.clientHeight) * 20)*rig/100}px;`)
+
+      document.querySelector('#mouthr').setAttribute('style', `width: min(${100 - (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}vw, ${100 - (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}dvh);top: ${(-10 + (Y / document.body.clientHeight) * 20)*rig/100}px;`)
+
+      document.querySelector('#facedivl').setAttribute('style', `width: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#facedivr').setAttribute('style', `width: min(${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh); left: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+
+      document.querySelector('#facel').setAttribute('style', `width: min(${100 + (X - document.body.clientWidth/2)/document.body.clientWidth*15*rig/100}vw, ${100 + (X - document.body.clientWidth/2)/document.body.clientWidth*15*rig/100}dvh);top: ${(-5 + (Y / document.body.clientHeight) * 10)*rig/100}px;`)
+
+      document.querySelector('#facer').setAttribute('style', `width: min(${100 - (X - document.body.clientWidth/2)/document.body.clientWidth*15*rig/100}vw, ${100 - (X - document.body.clientWidth/2)/document.body.clientWidth*15*rig/100}dvh);top: ${(-5 + (Y / document.body.clientHeight) * 10)*rig/100}px;`)
+
       document.querySelector('#character').setAttribute('style', `transform: rotate(${(X - document.body.clientWidth/2)/document.body.clientWidth*15*rig/100}deg);`)
       }, i*12/20);
     }

@@ -29,24 +29,57 @@ body {
 .live2d {
     width: min(100vw, 100dvh);
     height: min(100vw, 100dvh);
+    overflow: hidden;
     position: absolute;
     top: 0;
     left: 0;
 }
 
-#bang {
+.live2dleft {
+    width: min(50vw, 50dvh);
+    height: min(100vw, 100dvh);
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.live2dright {
+    width: min(50vw, 50dvh);
+    height: min(100vw, 100dvh);
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: min(50vw, 50dvh);
+}
+
+#bangl, #mouthl, #eyesl, #facel {
+    width: min(100vw, 100dvh);
+    height: min(100vw, 100dvh);
+    position: absolute;
+    left: 0;
+}
+
+#bangr, #mouthr, #eyesr, #facer {
+    width: min(100vw, 100dvh);
+    height: min(100vw, 100dvh);
+    position: absolute;
+    right: 0;
+}
+
+#bangl, #bangr {
     z-index: 99;
 }
 
-#mouth {
+#mouthl, #mouthr {
     z-index: 98;
 }
 
-#eyes {
+#eyesl, #eyesr {
     z-index: 97;
 }
 
-#face {
+#facel, #facer {
     z-index: 96;
 }
 
