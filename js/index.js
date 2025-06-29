@@ -175,9 +175,9 @@ async function audio () {
       
       document.querySelector('#back').setAttribute('style', `top: ${(5 - (Y / document.body.clientHeight) * 10)*rig/100}px`)
 
-      document.querySelector('#bangdivl').setAttribute('style', `width: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+      document.querySelector('#bangdivl').setAttribute('style', `width: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*5*rig/50}dvh);`)
 
-      document.querySelector('#bangdivr').setAttribute('style', `width: min(${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh); left: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+      document.querySelector('#bangdivr').setAttribute('style', `width: min(${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*5*rig/50}vw, ${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*5*rig/50}dvh); left: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*5*rig/50}dvh);`)
 
       document.querySelector('#bangl').setAttribute('style', `width: min(${100 + (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}vw, ${100 + (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}dvh); top: ${(-10 + (Y / document.body.clientHeight) * 20)*rig/100}px;`)
 
@@ -219,9 +219,9 @@ document.addEventListener('mousemove',function(e){
 
     document.querySelector('#back').setAttribute('style', `top: ${(5 - (e.clientY / document.body.clientHeight) * 10)*rig/100}px`)
 
-      document.querySelector('#bangdivl').setAttribute('style', `width: min(${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+      document.querySelector('#bangdivl').setAttribute('style', `width: min(${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*5*rig/50}vw, ${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*5*rig/50}dvh);`)
 
-      document.querySelector('#bangdivr').setAttribute('style', `width: min(${50 - (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 - (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh); left: min(${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+      document.querySelector('#bangdivr').setAttribute('style', `width: min(${50 - (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*5*rig/50}vw, ${50 - (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*5*rig/50}dvh); left: min(${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*5*rig/50}vw, ${50 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*5*rig/50}dvh);`)
 
       document.querySelector('#bangl').setAttribute('style', `width: min(${100 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}vw, ${100 + (e.clientX - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}dvh); top: ${(-10 + (e.clientY / document.body.clientHeight) * 20)*rig/100}px;`)
 
@@ -277,9 +277,9 @@ document.addEventListener('mousemove',function(e){
       
       document.querySelector('#back').setAttribute('style', `top: ${(5 - (Y / document.body.clientHeight) * 10)*rig/100}px`)
 
-      document.querySelector('#bangdivl').setAttribute('style', `width: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+      document.querySelector('#bangdivl').setAttribute('style', `width: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*5*rig/50}dvh);`)
 
-      document.querySelector('#bangdivr').setAttribute('style', `width: min(${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh); left: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*7.5*rig/50}dvh);`)
+      document.querySelector('#bangdivr').setAttribute('style', `width: min(${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*5*rig/50}vw, ${50 - (X - document.body.clientWidth/2)/document.body.clientWidth*5*rig/50}dvh); left: min(${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*5*rig/50}vw, ${50 + (X - document.body.clientWidth/2)/document.body.clientWidth*5*rig/50}dvh);`)
 
       document.querySelector('#bangl').setAttribute('style', `width: min(${100 + (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}vw, ${100 + (X - document.body.clientWidth/2)/document.body.clientWidth*20*rig/100}dvh); top: ${(-10 + (Y / document.body.clientHeight) * 20)*rig/100}px;`)
 
